@@ -20,7 +20,7 @@ In addition, this project will include:
 
 This app will consist of a single screen with the photo canvas, image settings, and nav links to the Github, my LinkedIn, and the About modal.  Image settings will include a slider to set the "Impressionistic" level of the image.  Additionally, a drop-down will be added to the settings to toggle between different art styles (again, see Bonus Features).
 
-![wireframes]()
+![wireframes](wireframes/art-schmart.png)
 
 ### Architecture and Technologies
 

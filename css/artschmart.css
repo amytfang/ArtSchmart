@@ -1,0 +1,102 @@
+body, header, h1, main, nav, div, input, form, select, option, footer,
+a, li, ul, ol, button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  font: inherit;
+  background: transparent;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: url('paint-splatter-background.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  background-origin:padding-box;
+}
+
+header {
+  font-size: 60px;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+nav {
+  width: 900px;
+  margin: 0 auto;
+  background: #000;
+  color: #fff;
+  padding: 20px 30px 0px 30px;
+  font-size: 20px
+}
+
+.image-settings {
+  float: left;
+  margin-top: 10px;
+}
+
+#image-dropdown {
+  background-color: #fff;
+  margin-right: 10px;
+  color: #000;
+}
+
+.demo-images {
+  float: right;
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.demo-images:hover {
+  background: #474747;
+}
+
+.file-upload {
+  float: right;
+}
+
+.file-upload label {
+  float:right;
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+
+.file-upload label:hover {
+  background: #474747;
+}
+
+#file-input {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.canvas-border {
+  border: 30px solid black;
+  width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  background: #fff;
+}

@@ -68,8 +68,7 @@ h2 {
   color: #000;
 }
 
-.demo-images {
-  float: right;
+.demo-images, #reset-button {
   margin-top: 5px;
   padding: 5px;
   border: 1px solid #fff;
@@ -77,15 +76,19 @@ h2 {
   margin-right: 10px;
 }
 
-.demo-images:hover {
+.demo-images:hover, #reset-button:hover {
   background: #474747;
 }
 
-.file-upload {
+.demo-images {
+  float: left;
+}
+
+#reset-button, .file-upload {
   float: right;
 }
 
-.file-upload label {
+.file-upload label, #reset-button {
   float:right;
   margin-top: 5px;
   padding: 5px;

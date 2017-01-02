@@ -13,27 +13,45 @@
     </header>
     <main>
       <nav class="group">
+        <div class="file-upload">
+          <label for="file-input">Upload</label>
+          <input type="file" id="file-input">
+        </div>
+        <button type="button" class="demo-images" name="demo-image-3">Demo 3</button>
+        <button type="button" class="demo-images" name="demo-image-2">Demo 2</button>
+        <button type="button" class="demo-images" name="demo-image-1">Demo 1</button>
+      </nav>
+      <div class="canvas-border">
+        <canvas id="image-canvas"></canvas>
+      </div>
+      <nav class="group">
         <div class="image-settings">
+          <h2>Canvas Tools</h2>
           <form id="image-form">
             <select id="image-dropdown">
               <option value="none">None</option>
               <option value="impressionism">Impressionism</option>
               <option value="pointillism">Pointillism</option>
             </select>
+            <label for="image-slider">Clarity</label>
             <input type="range" id="image-slider" min="1" max="5" value="3">
           </form>
         </div>
-        <div class="file-upload">
-          <label for="file-input">Upload image</label>
-          <input type="file" id="file-input">
+        <div class="brush-settings">
+          <h2>Brush Tools</h2>
+          <form id="brush-form">
+            <select id="brush-dropdown">
+              <option value="none">None</option>
+              <option value="impressionism">Impressionism</option>
+              <option value="pointillism">Pointillism</option>
+            </select>
+            <label for="brush-clarity-slider">Clarity</label>
+            <input type="range" id="brush-clarity-slider" min="1" max="5" value="3">
+            <label for="brush-size-slider">Size</label>
+            <input type="range" id="brush-size-slider" min="1" max="5" value="3">
+          </form>
         </div>
-        <button type="button" class="demo-images" name="demo-image-3">Image 3</button>
-        <button type="button" class="demo-images" name="demo-image-2">Image 2</button>
-        <button type="button" class="demo-images" name="demo-image-1">Image 1</button>
       </nav>
-      <div class="canvas-border">
-        <canvas id="image-canvas"></canvas>
-      </div>
     </main>
     <footer>
     </footer>

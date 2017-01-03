@@ -118,3 +118,7 @@ h2 {
   margin: 0 auto;
   background: #fff;
 }
+
+.brush-mode {
+  cursor: url(cursor-brush.cur), auto;
+}

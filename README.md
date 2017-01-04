@@ -4,6 +4,10 @@
 
 Art Schmart is a JavaScript-based image manipulation tool that enables users to create versions of their own images styled to reflect the Impressionism and Pointillism art movements.  Additionally, brush tools allow users to layer either brushstrokes or dots upon specific portions of their images.
 
+![canvas-tools](images/canvas-tools.gif)
+
+![brush-tools](images/brush-tools.gif)
+
 ## Features
 
 * Upload images or choose from three demo images

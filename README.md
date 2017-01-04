@@ -4,9 +4,7 @@
 
 Art Schmart is a JavaScript-based image manipulation tool that enables users to create versions of their own images styled to reflect the Impressionism and Pointillism art movements.  Additionally, brush tools allow users to layer either brushstrokes or dots upon specific portions of their images.
 
-![canvas-tools](images/canvas-tools.gif)
-
-![brush-tools](images/brush-tools.gif)
+![overview](images/overview.png)
 
 ## Features
 
@@ -64,6 +62,8 @@ class Pixel {
 ```
 
 ### Impressionistic Rendering
+
+![canvas-tools](images/canvas-tools.gif)
 
 As discussed above, the Impressionist rendering of the image is based in part on the white paper entitled ["Non-photorealistic image processing: an Impressionist rendering"](https://arxiv.org/pdf/0911.4874.pdf).  In addition to the paper, the process was modified to account for the limitations of `Canvas`, optimized rendering, and allowing for user interaction.
 
@@ -173,4 +173,6 @@ includedCoords(pos, radius) {
 }
 ```
 
-From the array of coordinates, a random subset is generated and then either `drawCurve` or `drawCircle` is called on the `Pixel`s that those positions.  These images are overlayed on whatever was previously on the `Canvas`.  
+From the array of coordinates, a random subset is generated and then either `drawCurve` or `drawCircle` is called on the `Pixel`s that those positions.  These images are overlayed on whatever was previously on the `Canvas`.
+
+![brush-tools](images/brush-tools.gif)  

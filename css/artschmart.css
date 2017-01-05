@@ -32,6 +32,7 @@ header {
   font-family: 'Rock Salt', cursive;
   text-align: center;
   font-weight: bold;
+  cursor: default;
 }
 
 nav {

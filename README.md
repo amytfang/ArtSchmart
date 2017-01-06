@@ -93,24 +93,33 @@ drawCurve(pixel, clarity) {
 
 ### Pointillistic Rendering
 
-The Pointillistic rendering of an image creates a grid of circles, each containing a single color, and allows the human eye to blend the colors and create the image.  Because we have the ability to index into the `pixelMap` based on the x and y coordinates of the pixels of the image, the user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate.  Unlike the Impressionistic rendering, the Pointillistic rendering clears the canvas prior rendering to reflect to obvious whitespace used in Pointillistic paintings.
+The Pointillistic rendering of an image creates a set circles each containing a single color positioned either in a grid or randomly which allows the human eye to blend the colors and create the image.  Because we have the ability to index into the `pixelMap` based on the x and y coordinates of the pixels of the image, the user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate.  The Pointillistic grid rendering clears the canvas prior rendering to reflect to obvious whitespace used in Pointillistic paintings.
 
 ```javascript
-makePoint() {
+makeRandPoint() {
+  const ctx = this.painting.ctx;
+  const pixelCount = 100000 / this.canvasClarity;
+  const pixelSample = Util.getRandomSubarray(this.pixelMap, pixelCount);
+  pixelSample.forEach((pixel) => {
+    this.drawCircle(pixel, this.canvasClarity);
+  });
+}
+
+makeGridPoint() {
   const ctx = this.painting.ctx;
   ctx.clearRect(0, 0, 900, 600);
   const spacing = this.canvasClarity * 4;
   for (let i = (900 % spacing === 0) ? spacing / 2 : 0; i < 900; i += spacing) {
     for (let j = (600 % spacing === 0) ? spacing / 2 : 0; j < 600; j += spacing) {
       let index = (i + j * this.width);
-      this.drawCircle(this.pixelMap[index], this.canvasClarity);
+      this.drawCircle(this.pixelMap[index], this.canvasClarity, false);
     }
   }
 }
 
-drawCircle(pixel, clarity) {
-  const posX = pixel.pos[0];
-  const posY = pixel.pos[1];
+drawCircle(pixel, clarity, shift = true) {
+  const posX = shift ? pixel.newPos[0] : pixel.pos[0];
+  const posY = shift ? pixel.newPos[1] : pixel.pos[1];
   const ctx = this.painting.ctx;
 
   ctx.beginPath();

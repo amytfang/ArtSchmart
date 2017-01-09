@@ -8,10 +8,10 @@ Art Schmart is a JavaScript-based image manipulation tool that enables users to 
 
 ## Features
 
-* Upload images or choose from three demo images
+* Upload images or choose from five demo images
 * Toggle the entire image between Impressionism style, Pointillism style, and the original image
 * Select the level of clarity for the entire image
-* Use brush tools to draw Impressionistic brushstrokes or Pointillism dots overlaid upon specific areas of the image with the mouse
+* Use brush tools to overlay Impressionistic brushstrokes or Pointillism dots upon specific areas of the image with the mouse
 * Adjust the clarity level and size of the brush
 
 ## Technologies Used
@@ -23,7 +23,7 @@ Art Schmart is a JavaScript-based image manipulation tool that enables users to 
 
 ### Pixel Level Manipulation
 
-When an image is first uploaded, it is loaded onto the `Canvas` element of the DOM.  Once the image is loaded to the DOM, a `Canvas` method fetches the image data, which includes a `Uint8ClampedArray` representing a one-dimensional array containing the data in the RGBA order with integer values between 0 and 255.  This `Uint8ClampedArray` array is used to create an array of `Pixel` objects which store the RGBA value and position of each pixel in the image.  
+When an image is first uploaded, it is loaded onto the `Canvas` element of the DOM.  Once the image is loaded to the DOM, a `Canvas` method fetches the image data, which includes a `Uint8ClampedArray` representing a one-dimensional array containing pixel data in the RGBA order with integer values between 0 and 255.  This `Uint8ClampedArray` array is used to create an array of `Pixel` objects which store the RGBA value and position of each pixel in the image.  
 
 ```javascript
 createPixelArray() {
@@ -47,7 +47,7 @@ const pixel = [46, 20]; // given a set of coordinates
 let index = (pixel[0] + pixel[1] * this.width); // finds the index of the coordinates in the pixelMap
 ```
 
-Additionally, the `Pixel` object holds a `shift` method for implementing Impressionism style in accordance with the white paper entitled ["Non-photorealistic image processing: an Impressionist rendering"](https://arxiv.org/pdf/0911.4874.pdf) which calls for shifting the pixels prior to rendering in an Impressionistic rendering.  
+Additionally, the `Pixel` object holds a `shift` method for implementing Impressionism style in accordance with the white paper entitled ["Non-photorealistic image processing: an Impressionist rendering"](https://arxiv.org/pdf/0911.4874.pdf) which calls for shifting the pixels prior to rendering in an Impressionistic rendering.  This is also used to implement the random Pointillism style in the same method.
 
 ```javascript
 class Pixel {
@@ -97,7 +97,7 @@ drawCurve(pixel, clarity) {
 
 ### Pointillistic Rendering
 
-The Pointillistic rendering of an image creates a set circles each containing a single color positioned either in a grid or randomly which allows the human eye to blend the colors and create the image.  Because we have the ability to index into the `pixelMap` based on the x and y coordinates of the pixels of the image, the user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate.  The Pointillistic grid rendering clears the canvas prior rendering to reflect to obvious whitespace used in Pointillistic paintings.
+The Pointillistic rendering of an image creates a set circles where each circle contains a single color positioned either in a grid or randomly which allows the human eye to blend the colors and create the image.  The random view is implemented in a similar fashion to the Impressionistic rending, overlaying dots instead of curves.  For the grid view, on the other hand, the program indexes into the `pixelMap` based on the x and y coordinates of the pixels of the image. The user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate for the grid view.  The Pointillistic grid rendering clears the canvas prior rendering to reflect to obvious whitespace used in Pointillistic paintings.
 
 ```javascript
 makeRandPoint() {
@@ -182,6 +182,6 @@ includedCoords(pos, radius) {
 }
 ```
 
-From the array of coordinates, a random subset is generated and then either `drawCurve` or `drawCircle` is called on the `Pixel`s that those positions.  These images are overlayed on whatever was previously on the `Canvas`.
+From the array of coordinates, a random subset is generated and then either `drawCurve` or `drawCircle` is called on the `Pixel`s that those positions.  These images are overlaid on whatever was previously on the `Canvas`.
 
 ![brush-tools](images/brush-tools.gif)  

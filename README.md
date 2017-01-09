@@ -97,7 +97,7 @@ drawCurve(pixel, clarity) {
 
 ### Pointillistic Rendering
 
-The Pointillistic rendering of an image creates a set circles where each circle contains a single color positioned either in a grid or randomly which allows the human eye to blend the colors and create the image.  The random view is implemented in a similar fashion to the Impressionistic rending, overlaying dots instead of curves.  For the grid view, on the other hand, the program indexes into the `pixelMap` based on the x and y coordinates of the pixels of the image. The user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate for the grid view.  The Pointillistic grid rendering clears the canvas prior rendering to reflect to obvious whitespace used in Pointillistic paintings.
+The Pointillistic rendering of an image creates a set of circles where each circle contains a single color and is positioned either in a grid or randomly. The random view is implemented in a similar fashion to the Impressionistic rending, overlaying dots instead of curves.  For the grid view, the program indexes into the `pixelMap` based on the x and y coordinates of the pixels of the image. The user can select the clarity level for the rendered image and the program can simply adjust the spacing between the rendered circles by changing how we iterate for the grid view.  The Pointillistic grid rendering clears the canvas prior rendering to reflect the obvious whitespace used in certain Pointillistic paintings.
 
 ```javascript
 makeRandPoint() {

@@ -46,6 +46,7 @@ nav {
 
 nav h2 {
   font-weight: bold;
+  cursor: default;
 }
 
 .image-settings {

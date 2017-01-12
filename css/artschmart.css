@@ -51,11 +51,13 @@ nav h2 {
 .image-settings {
   float: left;
   padding: 5px;
+  cursor: default;
 }
 
 .brush-settings {
   float: right;
   padding: 5px;
+  cursor: default;
 }
 
 h2 {
